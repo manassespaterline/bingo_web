@@ -37,12 +37,62 @@ function criarTabela(nome){
     thead.appendChild(td_O);
 
 
+    let minFirstRow = 1
+    let maxFirstRow = 15
+    
+
+    let minSecondRow = 16
+    let maxSecondRow = 30
+    
+
+    let minThirdRow = 31
+    let maxThirdRow = 45
+    
+    
+
+    let minFourthRow = 46
+    let maxFourthRow = 60
+    
+
+    let minFifthRow = 61
+    let maxFifthRow = 75
+    
+
+    //console.log(randomSecondRow, randomThirdRow, randomFourthRow, randomFifthRow)
+
+
     //Inserindo os elementos no tbody
     for (let i = 0; i < 5; i++){
         const tr = document.createElement("tr");
         for(let j = 0; j < 5; j++){
             const td = document.createElement("td");
-            td.innerHTML = "XX";
+
+            if (j == 0){
+                let randomFirstRow = Math.floor(Math.random() * (+maxFirstRow + 1 - +minFirstRow)) + minFirstRow;
+                td.innerHTML = randomFirstRow;
+            }
+            else if (j == 1){
+                let randomSecondRow = Math.floor(Math.random() * (+maxSecondRow + 1 - +minSecondRow)) + minSecondRow;
+                td.innerHTML = randomSecondRow;
+            }
+            else if (j == 2){
+                let randomThirdRow = Math.floor(Math.random() * (+maxThirdRow + 1 - +minThirdRow)) + minThirdRow;
+                td.innerHTML = randomThirdRow;
+
+                if (i == 2){
+                    td.innerHTML = "X";
+                }
+                console.log(randomThirdRow)
+            }
+            else if (j == 3){
+                let randomFourthRow = Math.floor(Math.random() * (+maxFourthRow + 1 - +minFourthRow)) + minFourthRow;
+                td.innerHTML = randomFourthRow;
+            }
+            else{
+                let randomFifthRow = Math.floor(Math.random() * (+maxFifthRow + 1 - +minFifthRow)) + minFifthRow;
+                td.innerHTML = randomFifthRow;
+            }
+
             tr.appendChild(td);
         }
         tbody.appendChild(tr);
